@@ -1,15 +1,13 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const placesSchema = new Schema({
   title: String,
-  openingHours: String,
+  openingHours: [],
   description: String,
   location: String,
-  coordinates:String
-})
+  coordinates: [],
+  image: String,
+});
 
 module.exports = mongoose.model("Place", placesSchema);
-
-
-

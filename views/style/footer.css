@@ -1,0 +1,21 @@
+footer{
+
+
+    margin-top: auto;
+    background-color: #212529;
+    display: block;
+}
+.footerContainer {
+
+    background-color: #212529;
+    padding-top: 1rem!important;
+  padding-bottom: 1rem!important;
+}
+.text-light {
+   background-color:  #6c757d;
+}
+
+@media (min-width: 576px){
+.container {
+  max-width: 540px;
+}}

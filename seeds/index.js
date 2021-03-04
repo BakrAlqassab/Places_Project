@@ -21,6 +21,10 @@ const seedDB = async () => {
     const place = new Place({
       location: `${cities[random1000].city},${cities[random1000].state}`,
       title: `${sample(descriptors)} ${sample(places)}`,
+      image: "https://source.unsplash.com/collection/483251",
+      description:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, sequi! Reprehenderit omnis aperiam dignissimos iste blanditiis numquam, corporis molestiae necessitatibus repellendus nisi non veritatis natus, voluptate autem sit voluptates! Illum.",
+        coordinates : latLng = { lat:'60.9999',lng:'24.45'},openingHours:{from:9, to:12}
     });
     await place.save();
   }
