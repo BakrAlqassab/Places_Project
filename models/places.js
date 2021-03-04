@@ -6,6 +6,7 @@ const placesSchema = new Schema({
   openingHours: String,
   description: String,
   location: String,
+  coordinates:String
 })
 
 module.exports = mongoose.model("Place", placesSchema);
