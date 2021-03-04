@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Show</title>
-</head>
-<body>
+  </head>
+  <body>
+    <h1>PLACES SHOW</h1>
 
-    <h1>PLACES SHOW  </h1>
-        
     <h1><%= place.title %></h1>
     <h2><%= place.location %></h2>
-</body>
+    <a href="/places/<%= place._id %>/edit"> Edit </a>
+
+    <footer>
+      <a href="/places"> All Places </a>
+    </footer>
+  </body>
 </html>

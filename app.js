@@ -15,6 +15,7 @@ db.once("open", () => {
 const app = express();
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
+// The default is true  , just for refrence
 app.use(express.urlencoded({extended:true}))
 
 app.get("/", async (req, res) => {
@@ -27,7 +28,10 @@ app.get("/places", async (req, res) => {
   res.render("places/index", { places });
 });
 app.post("/places", async (req, res) => {
-  res.send(req.body);
+ const place = new Place(req.body.place);
+ await place.save();
+ // redirect the page for the new place
+ res.redirect(`places/${place._id}`)
 });
 app.get("/places/new", async (req, res) => {
  res.render('places/new')
@@ -35,11 +39,18 @@ app.get("/places/new", async (req, res) => {
 app.get("/places/:id", async (req, res) => {
   // looking for particular Place
   const place = await Place.findById(req.params.id);
+      console.log(place);
   res.render("places/show",{place});
 });
 
 
+// Updating
 
+app.get("/places/:id/edit", async (req, res) => {
+  const place = await Place.findById(req.params.id);
+
+  res.render("places/edit", { place });
+});
 
 app.listen(3005, () => {
   console.log("Serving on Port 3005");
