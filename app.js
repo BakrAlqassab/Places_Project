@@ -2,6 +2,8 @@ const express = require("express");
 const path = require("path");
 const Place = require("./models/places");
 const mongoose = require("mongoose");
+// will use for Update methods
+const method = require("method-override");
 mongoose.connect("mongodb://localhost:27017/places-map", {
   useNewUrlParser: true,
   useCreateIndex: true,
@@ -16,7 +18,8 @@ const app = express();
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 // The default is true  , just for refrence
-app.use(express.urlencoded({extended:true}))
+app.use(express.urlencoded({ extended: true }));
+app.use(method('_method'));
 
 app.get("/", async (req, res) => {
   res.render("home");
@@ -28,21 +31,20 @@ app.get("/places", async (req, res) => {
   res.render("places/index", { places });
 });
 app.post("/places", async (req, res) => {
- const place = new Place(req.body.place);
- await place.save();
- // redirect the page for the new place
- res.redirect(`places/${place._id}`)
+  const place = new Place(req.body.place);
+  await place.save();
+  // redirect the page for the new place
+  res.redirect(`places/${place._id}`);
 });
 app.get("/places/new", async (req, res) => {
- res.render('places/new')
+  res.render("places/new");
 });
 app.get("/places/:id", async (req, res) => {
   // looking for particular Place
   const place = await Place.findById(req.params.id);
-      console.log(place);
-  res.render("places/show",{place});
+  console.log(place);
+  res.render("places/show", { place });
 });
-
 
 // Updating
 
@@ -51,6 +53,20 @@ app.get("/places/:id/edit", async (req, res) => {
 
   res.render("places/edit", { place });
 });
+
+
+app.put("/places/:id", async (req, res) => {
+ const {id} = req.params;
+ // the value of req.body.place is coming from the detected input value
+  const place = await Place.findByIdAndUpdate(id, { ...req.body.place });
+  res.redirect(`/places/${place._id}`);
+
+});
+
+
+
+
+
 
 app.listen(3005, () => {
   console.log("Serving on Port 3005");

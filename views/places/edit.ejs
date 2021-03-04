@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1> Edit Place</h1>
-    <form action="/places/" method='POST'>
+    <form action="/places/<%= place._id %>?_method=PUT" method='POST'>
 
         <div>
             <label for='title'>title</label>
