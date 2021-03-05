@@ -216,3 +216,14 @@ textarea{
     width: 33.3333333333%;
   }
 }
+
+.errorAlert {
+
+  background-color: rgba(207, 0, 15, 0.5);
+  height: 10em;
+  /* align-items: center; */
+  /* justify-content: center; */
+  text-align: start;
+  padding: 50px;
+  /* display: flex;
+}
