@@ -1,5 +1,38 @@
 <% layout('./layouts/boilerplate') %>
-<form action="/places" method="POST">
+
+<div class="row">
+  <h1 class="text-center">New Place</h1>
+  <div class="newPlaceForm">
+    <form action="/places" method="POST">
+      <div class='column'>
+        <label class="form-label" for="title">Title</label>
+        <input  class="form-inputs" type="text" id="title" name="place[title]" />
+      </div>
+      <div class='column'>
+        <label  class="form-label"  for="location">Location</label>
+        <input class="form-inputs" type="text" id="location" name="place[location]" />
+      </div>
+      <div class='column'>
+        <label  class="form-label"  for="image">Image URL</label>
+        <input class="form-inputs" type="text" id="image" name="place[image]" />
+      </div>
+
+      <div class='column'>
+        <label  class="form-label"  for="description">Description URL</label>
+        <textarea class="form-inputs textarea" type="text" id="description" name="place[description]" /></textarea>
+      </div>
+
+      <button class="btn btn-success  column addButton">Add place</button>
+    </form>
+
+    
+    <a href="/places"><< All Places</a>
+  </div>
+</div>
+
+
+
+<!-- <form action="/places" method="POST">
   <div>
     <label for="title">title</label>
     <input type="text" id="title" name="place[title]" />
@@ -21,4 +54,4 @@
   </div>
   <button>Add Place</button>
 </form>
-<a href="/places"> All Campgrounds</a>
+<a href="/places"> All Campgrounds</a> -->

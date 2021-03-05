@@ -1,21 +1,21 @@
-footer{
+footer {
+  background-color: #212529;
 
+  text-shadow: 6px 3px rgb(19 1 1 / 17%);
+  font-variant: all-small-caps;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: auto;
+  margin-top: a;
 
-    margin-top: auto;
-    background-color: #212529;
-    display: block;
+  width: 100%;
 }
 .footerContainer {
-
-    background-color: #212529;
-    padding-top: 1rem!important;
-  padding-bottom: 1rem!important;
+  background-color: #212529;
+  /* padding-top: 0.2em;
+    padding-bottom: 0.2em */
 }
 .text-light {
-   background-color:  #6c757d;
+  color: #6c757d;
 }
-
-@media (min-width: 576px){
-.container {
-  max-width: 540px;
-}}

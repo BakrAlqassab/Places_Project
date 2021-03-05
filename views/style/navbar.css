@@ -3,6 +3,7 @@ nav {
   justify-content: start;
   align-items: center;
   min-height: 8vh;
+  z-index: 1;
   background-color: #212529;
 }
 .logo {
