@@ -13,31 +13,49 @@ body {
   display: flex;
 }
 .container {
-  width: 90%;
-
+  width: 100%;
   margin-right: auto;
   margin-left: auto;
   margin-top: 6rem;
   margin-bottom: 3em;
+}
+.margin-top5 {
+
+margin-top: 8rem;
+
+}
+
+
+
+
+
+
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px;
+  }
+}
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
 }
 @media (min-width: 992px) {
   .container {
     max-width: 960px;
   }
 }
-
-@media (min-width: 768px) {
+@media (min-width: 1200px){
   .container {
-    max-width: 720px;
-    margin-top: 10rem;
+    max-width: 1140px;
   }
 }
-/* @media (min-width: 576px) {
-  .container {
-    max-width: 540px;
-  }
-} */
 
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1320px;
+  }
+}
 /*                 create new place form  */
 .text-center {
   text-align: center;
@@ -94,7 +112,7 @@ textarea{
   border-color: #198754;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 768px) {
   .newPlaceForm {
     width: 70%;
     margin-left: 15%;
@@ -136,9 +154,17 @@ textarea{
 .row {
   --bs-gutter-x: 1.5rem;
   --bs-gutter-y: 0;
-
+  display: flex;
+  flex-wrap: wrap;
   margin-top: calc(var(--bs-gutter-y) * -1);
-  margin-right: calc(var(--bs-gutter-x) / -2);
+  margin-right: calc(var(--bs-gutter-x)/ -2);
+  margin-left: calc(var(--bs-gutter-x)/ -2);
+}
+
+.column-width {
+  flex: 0 0 auto;
+  width: 50%;
+  border: ridge;
 }
 
 .card-body {
@@ -150,7 +176,7 @@ textarea{
 }
 .placeForm .img-row {
 }
-.placesForm .img-fluid {
+ .img-fluid {
   vertical-align: middle;
   max-width: 100%;
   height: auto;

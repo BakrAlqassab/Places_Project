@@ -51,15 +51,25 @@ route.get(
   })
 );
 
-// reviews
-route.post("/places/:id/reviews", async (req, res) => {
+// Reviews
+
+route.post("/places/:id/reviews",   catchAsync(async (req, res) => {
   const place = await Place.findById(req.params.id);
   const review = new Review(req.body.review);
   place.reviews.push(review);
   await review.save();
    await place.save()
    res.redirect(`/places/${place._id}`)
-});
+}));
+
+
+route.delete("/places/:id/reviews/:reviewId",  catchAsync( async (req, res) => {
+    const { id, reviewId } = req.params;
+  await Place.findByIdAndUpdate(id, { $pull: { reviews: reviewId } });
+  await Review.findByIdAndDelete(reviewId);
+  res.redirect(`/places/${id}`);
+  // res.send("Delete me ");
+}));
 
 // Updating
 
@@ -92,6 +102,9 @@ route.delete(
     res.redirect("/places");
   })
 );
+
+// Error Handling 
+
 route.all("*", (req, res, next) => {
   next(new ExpressError("Page not founds", 404));
 });
