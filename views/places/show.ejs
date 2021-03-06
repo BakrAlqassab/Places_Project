@@ -27,27 +27,38 @@
         </form>
       </div>
     </div>
+
+    
+    <h2> Leave a review</h2>
+    
+    <form action="/places/<%= place._id %>/reviews" method="POST" class="mt-3">
+      <div class="mb-3">
+<label for="rationg">Rating</label>
+
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="">Review</label>
+        <input class='form-range' type="range" name="review[rating]" min='1' max='5' id="rating">
+        <textarea class="form-control"
+          name="review[body]"
+          id="body"
+          cols="30"
+          rows="3"
+          required 
+        ></textarea>
+      </div>
+      <button class="btn btn-success">Submit </button>
+    </form>
+    <% for(let review of place.reviews) {%>
+      <div class='mb-3'>
+
+        <p>Rating: <%= review.rating %></p>
+        <p>Review: <%= review.body%></p>
+      </div>
+      <% }%>
   </div>
 </div>
 
  <br />
   <a href="/places"> All Places </a>
 
-<!-- <% layout('./layouts/boilerplate') %>
-    <h1>PLACES SHOW</h1>
-
-    <h1><%= place.title %></h1>
-    <h2><%= place.location %></h2>
-    <img src="<%= place.image %>" alt='' >
-    <p><%= place.description %></p>
-    <a href="/places/<%= place._id %>/edit"> Edit </a>
-    <p>
-
-        <form action="/places/<%= place._id %>?_method=DELETE" method='POST'>
-          <button>Delete</button>
-        </form>
-    </p>
-    <footer>
-      <a href="/places"> All Places </a>
-    </footer>
- -->

@@ -6,6 +6,8 @@ const mongoose = require("mongoose");
 const catchAsync = require("../../utils/catchAsync");
 const ExpressError = require("../../utils/ExpressError");
 
+const Review = require("../../models/review");
+
 mongoose.connect("mongodb://localhost:27017/places-map", {
   useNewUrlParser: true,
   useCreateIndex: true,
@@ -29,7 +31,7 @@ route.get("/places", async (req, res) => {
 route.post(
   "/places",
   catchAsync(async (req, res, next) => {
-    if (!req.body.place) throw new ExpressError('Invalid Place data',400);
+    if (!req.body.place) throw new ExpressError("Invalid Place data", 400);
     const place = new Place(req.body.place);
     await place.save();
     // redirect the page for the new place
@@ -43,13 +45,21 @@ route.get(
   "/places/:id",
   catchAsync(async (req, res) => {
     // looking for particular Place
-    const place = await Place.findById(req.params.id);
+    const place = await Place.findById(req.params.id).populate('reviews');;
     console.log(place);
     res.render("places/show", { place });
   })
 );
 
-// Updating
+// reviews
+route.post("/places/:id/reviews", async (req, res) => {
+  const place = await Place.findById(req.params.id);
+  const review = new Review(req.body.review);
+  place.reviews.push(review);
+  await review.save();
+   await place.save()
+   res.redirect(`/places/${place._id}`)
+});
 
 // Updating
 
@@ -87,8 +97,8 @@ route.all("*", (req, res, next) => {
 });
 route.use((err, req, res, next) => {
   const { statuscode = 500 } = err;
-  if(!err.message)err.message =' Something went Wrong';
-  res.status(statuscode).render('./error',{err});
+  if (!err.message) err.message = " Something went Wrong";
+  res.status(statuscode).render("./error", { err });
   // res.send("Something went wrong");
 });
 module.exports = route;

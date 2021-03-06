@@ -1,8 +1,9 @@
 
 <% layout('./layouts/boilerplate') %>
+<img src="./img/error.svg" class="errorImg" alt="">
 <div class='errorAlert'>
 <h4 class="alert-heading">Error!</h4>
 <h1><%= err.message %></h1>
 <hr>
-<p> <%= err.stack %></p>
+<h3> <%= err.stack %></h3>
 </div>

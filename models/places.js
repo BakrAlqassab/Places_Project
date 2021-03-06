@@ -8,6 +8,10 @@ const placesSchema = new Schema({
   location: String,
   coordinates: [],
   image: String,
+    reviews:[{
+        type:Schema.Types.ObjectId,
+        ref:'Review'
+    }]
 });
 
 module.exports = mongoose.model("Place", placesSchema);

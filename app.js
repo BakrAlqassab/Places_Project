@@ -8,7 +8,7 @@ const app = express();
 const method = require("method-override");
 app.use(method("_method"));
 app.set("view engine", "ejs");
-app.set("views", path.join(__dirname, "views"));
+
 // The default is true  , just for refrence
 app.use(express.urlencoded({ extended: true }));
 
@@ -22,10 +22,14 @@ app.use(express.urlencoded({ extended: true }));
 // fs.writeFileSync(`${folderName}/app.js`, "");
 // fs.writeFileSync(`${folderName}/styles.css`, "");
 //load assets
-app.use("/style", express.static(path.resolve(__dirname, "views/style")));
-// app.use('/img'expres.statis(path.resolve(__dirname,"views/style")))
-app.use("/js", express.static(path.resolve(__dirname, "views/js")));
 app.engine("ejs", ejsMate);
+
+
+app.use("/style", express.static(path.resolve(__dirname, "views/style")));
+app.use("/img",express.static(path.resolve(__dirname,"views/img")));
+app.use("/js", express.static(path.resolve(__dirname, "views/js")));
+// app.set("views", path.join(__dirname, "views"));
+app.use( express.static(path.join(__dirname, "places/style")));
 
 // load routers
 
