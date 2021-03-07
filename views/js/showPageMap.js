@@ -11,5 +11,6 @@ const map = new mapboxgl.Map({
 
 
 new mapboxgl.Marker().setLngLat( place.geometry.coordinates)
-.setPopup(new mapboxgl.Popup({offset:25}).setHTML(`<h3>${place.title}</h3> <p>${place.location}</p>`))
+.setPopup(new mapboxgl.Popup({offset:25}).setHTML(`<h4>${place.title}</h4> <p>${place.location}</p> <h5 style='line-break: anywhere;'>${place.description.substring(0,50)}...</h5>
+  <h5> Lng: ${place.geometry.coordinates[0] } Lat:${place.geometry.coordinates[1]}</h5>`))
 .addTo(map)

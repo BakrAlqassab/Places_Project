@@ -26,13 +26,14 @@ nav {
   text-decoration: none;
   letter-spacing: 3px;
   font-weight: bold;
-  font-size: 14px;
+  font-size: 18px;
 }
 .sticky {
 
   position: fixed;
   top: 0;
   width: 100%;
+  padding: 0 1em;
   
   }
 .burger {

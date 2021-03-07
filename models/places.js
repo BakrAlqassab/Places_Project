@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const Review = require("./review");
-
+const opts = { toJSON: { virtuals: true } };
 const placesSchema = new Schema({
   title: String,
   openingHours: [],
@@ -26,8 +26,12 @@ const placesSchema = new Schema({
       ref: "Review",
     },
   ],
-});
+},opts);
 
+placesSchema.virtual("properties.popUpMarkup").get(function () {
+  return `<h4><a href="/places/${this._id}">${this.title}</a></h4><p style='line-break: anywhere;'>${this.description.substring(0,50)}...</p>
+  <h5> Lng: ${this.geometry.coordinates[0] } Lat:${this.geometry.coordinates[1]}</h5>`
+});
 // https://mongoosejs.com/docs/api/model.html#model_Model.findByIdAndDelete
 // This middle well delete the related rating to tte deleted Place
 placesSchema.post("findOneAndDelete", async function (doc) {

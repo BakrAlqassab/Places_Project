@@ -40,6 +40,7 @@ route.post(
     // console.log(geoData.body.features[0].geometry);
     // res.send(geoData.body.features[0].geometry.coordinates)
     const place = new Place(req.body.place);
+    console.log(place);
     place.geometry = geoData.body.features[0].geometry
     await place.save();
     req.flash("success", "Succesfully made a new Place");
