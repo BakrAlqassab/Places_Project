@@ -43,12 +43,13 @@ const sessionConfig = {
 
 app.use(session(sessionConfig));
 app.use(flash());
-//this middleware will take the value of the flash success and put in our locals at succsess value
+//  This middleware will take the value of the flash success and put in our locals at succsess value
 app.use((req, res, next) => {
   res.locals.success = req.flash('success');
   res.locals.error = req.flash('error');
   next()
 });
+
 // load routers
 
 app.use("/", routers);

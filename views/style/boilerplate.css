@@ -26,7 +26,7 @@ body {
   width: -webkit-fill-available;
   flex-wrap: wrap;
   margin-top: calc(var(--bs-gutter-y) * -1);
-  /* display: flex; */
+
 }
 
 .home-btn {
@@ -45,7 +45,7 @@ body {
 .main-home {
   height: 100vh;
   background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-    url("https://images.unsplash.com/photo-1535745122259-f1e187953c4c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1353&q=80")
+    url("https://images.unsplash.com/photo-1540542608259-5be832201790?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80")
       no-repeat center;
   background-size: cover;
 }
@@ -62,11 +62,7 @@ body {
   font-weight: bold;
 }
 
-/* @media (min-width: 576px) {
-  .container {
-    max-width: 540px;
-  }
-} */
+
 @media (max-width: 768px) {
   .container {
     max-width: 720px;
@@ -94,15 +90,16 @@ body {
     max-width: 1320px;
   }
 }
-/*                 create new place form  */
+
+
+/*                                                          create new place form  */
+
+
 .text-center {
   text-align: center;
   margin-bottom: 1em;
 }
-/* .newPlaceForm {
-  /* width: 50%;
-  margin-left: 25%; 
-} */
+
 .column {
   margin-bottom: 1rem;
 }
@@ -131,20 +128,9 @@ textarea {
   height: 8em;
   width: 100%;
   margin: 2em 0;
+  border: 1px solid;
 }
-/* .addButton {
-  display: inline-block;
 
-  line-height: 1.5;
-  margin-bottom: 1rem;
-  text-align: center;
-  text-decoration: none;
-
-  border: 1px solid transparent;
-  padding: 0.375rem 0.75rem;
-  font-size: 1rem;
-  border-radius: 0.25rem;
-} */
 
 .btn-success {
   color: #fff;
@@ -157,14 +143,8 @@ textarea {
     width: 70%;
     margin-left: 15%;
   }
-  /* .container {
-    max-width: 720px;
-  } */
+
 }
-/* @media (min-width: 576px){
-    .container {
-      max-width: 540px;
-    }} */
 
 /*                           All places page  */
 .map {
@@ -213,7 +193,7 @@ textarea {
 }
 .card-text {
   line-break: anywhere;
-} /* one place show  */
+} /*                                                              one place show  */
 .img-fluid {
   vertical-align: middle;
   max-width: 100%;
@@ -277,7 +257,7 @@ textarea {
 .d-inline {
   display: inline;
 }
-/*                                          Place Map  */
+/*                                                                          Place Map  */
 
 .place-map {
   width: 100%;
@@ -366,12 +346,11 @@ input[type="range"]::-webkit-slider-thumb {
     margin: 2em 0.3em;
   }
 }
-/*                           Error Page  */
+/*                                                                  Error Page  */
 .errorAlert {
   background-color: rgba(207, 0, 15, 0.5);
   height: auto;
-  /* align-items: center; */
-  /* justify-content: center; */
+ 
   text-align: start;
   padding: 50px;
   /* display: flex;*/
@@ -381,7 +360,7 @@ input[type="range"]::-webkit-slider-thumb {
   height: 22em;
 }
 
-/*                              Flash    */
+/*                                                               Flash    */
 
 .flash-success {
   color: #0f5132;
