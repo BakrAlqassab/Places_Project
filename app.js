@@ -28,7 +28,6 @@ app.use("/style", express.static(path.resolve(__dirname, "views/style")));
 app.use("/img", express.static(path.resolve(__dirname, "views/img")));
 app.use("/js", express.static(path.resolve(__dirname, "views/js")));
 
-app.use(express.static(path.join(__dirname, "public")));
 
 // SESSIONS
 // Session expire after a week

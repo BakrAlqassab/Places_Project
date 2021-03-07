@@ -1,19 +1,8 @@
 <% layout('./layouts/boilerplate') %>
-<!-- <style>
 
-.text-center{
-
-  font-size:100px
-}
-.newPlaceForm {
-
-  background-color: red;
-}
-
-</style> -->
 <div class="row">
   <h1 class="text-center">New Place</h1>
-  <div class="newPlaceForm">
+  <div class="PlaceForm">
     <form action="/places" method="POST">
       <div class='column'>
         <label class="form-label" for="title">Title</label>
@@ -43,26 +32,3 @@
 
 
 
-<!-- <form action="/places" method="POST">
-  <div>
-    <label for="title">title</label>
-    <input type="text" id="title" name="place[title]" />
-  </div>
-  <div>
-    <label for="location">location</label>
-    <input type="text" id="location" name="place[location]" />
-  </div>
-
- 
-  <div class="">
-    <label class="" for="image">Image URL</label>
-    <input class="" type="text" id="image" name="campground[image]" />
-  </div>
-
-  <div>
-    <label for="description">description</label>
-    <textarea type="text" id="description" name="place[description]" ></textarea>
-  </div>
-  <button>Add Place</button>
-</form>
-<a href="/places"> All Campgrounds</a> -->

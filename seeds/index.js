@@ -15,7 +15,10 @@ db.once("open", () => {
 
 const sample = (array) => array[Math.floor(Math.random() * array.length)];
 const seedDB = async () => {
+  // well delete all exist data in the collection(Table)
   await Place.deleteMany({});
+  // length represent how many places want to create by hard code 
+  //for example here 20
   for (let i = 0; i < 20; i++) {
     const random1000 = Math.floor(Math.random() * 1000);
     const place = new Place({

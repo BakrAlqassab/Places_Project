@@ -2,9 +2,7 @@ const navSlide = () => {
   const burger = document.querySelector(".burger");
   const nav = document.querySelector(".nav-links");
   const navLinks = document.querySelectorAll(".nav-links li");
-  // import dotenv from "dotenv";
-  // import * as dotenv from "dotenv";
-  // dotenv.config();
+  
 
   // toggle Nav
   burger.addEventListener("click", () => {
@@ -21,6 +19,8 @@ const navSlide = () => {
         }s`;
       }
     });
+
+
 
     // Burger Animation
 

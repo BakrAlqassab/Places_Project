@@ -23,27 +23,43 @@ body {
   --bs-gutter-x: 1.5rem;
   --bs-gutter-y: 0;
   margin: 1em;
+  width: -webkit-fill-available;
   flex-wrap: wrap;
   margin-top: calc(var(--bs-gutter-y) * -1);
-  display: flex;
+  /* display: flex; */
 }
-/* 
-@media (min-width: 768px) {
-  .row {
-    display: inline-block;
-  }
-  
-  
-  }
-  
-  @media (max-width: 420px) {
-    .row {
-      display: inline-block;
-    }
-  } */
-  
+
+.home-btn {
+  font-weight: bold !important;
+  font-size: xx-large !important;
+  margin: 1em;
+  background-color: rgba(255,255,255,0.9);
+  color: #333;
+}
+
 .margin-top5 {
   margin-top: 8rem;
+}
+
+/*        Home page  */
+.main-home {
+  height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("https://images.unsplash.com/photo-1535745122259-f1e187953c4c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1353&q=80")
+      no-repeat center;
+  background-size: cover;
+}
+.main-home .cover-container {
+  margin-top: 18%;
+}
+.main-home .tac {
+  text-align: center;
+  color: #fff;
+}
+.cover-container .lead {
+  margin: 2em;
+  font-size: larger;
+  font-weight: bold;
 }
 
 /* @media (min-width: 576px) {
@@ -54,18 +70,16 @@ body {
 @media (max-width: 768px) {
   .container {
     max-width: 720px;
-    
   }
   .row {
     display: inline-block;
   }
-
 }
 @media screen and (max-width: 992px) {
   .container {
     max-width: 960px;
   }
-    .row {
+  .row {
     display: inline-block;
   }
 }
@@ -110,11 +124,13 @@ body {
   -moz-appearance: none;
   appearance: none;
   border-radius: 0.25rem;
+  margin: 0.5em 0;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 textarea {
   height: 8em;
   width: 100%;
+  margin: 2em 0;
 }
 /* .addButton {
   display: inline-block;
@@ -137,7 +153,7 @@ textarea {
 }
 
 @media screen and (min-width: 768px) {
-  .newPlaceForm {
+  .PlaceForm {
     width: 70%;
     margin-left: 15%;
   }
@@ -152,7 +168,6 @@ textarea {
 
 /*                           All places page  */
 .map {
-
   width: 95%;
   height: 500px;
   margin: 1em;
@@ -182,16 +197,12 @@ textarea {
   border-radius: 0.25rem;
 }
 
-
-
-
 .column-width {
   flex: 0 0 auto;
   width: 50%;
   border: ridge;
 }
-@media  (max-width: 992px) {
- 
+@media (max-width: 992px) {
   .column-width {
     width: 100%;
   }
@@ -217,14 +228,18 @@ textarea {
   color: #6c757d;
 }
 
-
 .margin1 {
   margin: 1em;
-
+}
+.mt1 {
+  margin: 1em 0.2em;
+  font-size: 2em;
+}
+.disflex {
+  display: flex;
 }
 .btn {
   display: inline-block;
-  font-weight: 400;
   line-height: 1.5;
   text-align: center;
   text-decoration: none;
@@ -301,7 +316,6 @@ input[type="range"]::-webkit-slider-thumb {
   width: 15px;
 }
 
-
 /*                                            Reviews display  */
 
 .reviews {
@@ -342,7 +356,6 @@ input[type="range"]::-webkit-slider-thumb {
   .img-row {
     width: 33.3333333333%;
   }
-
 }
 
 @media (max-width: 420px) {
@@ -350,7 +363,7 @@ input[type="range"]::-webkit-slider-thumb {
     width: 90%;
   }
   .reviews .review {
-    margin: 2em .3em;
+    margin: 2em 0.3em;
   }
 }
 /*                           Error Page  */

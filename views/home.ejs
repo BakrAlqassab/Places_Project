@@ -1,2 +1,30 @@
-<% layout('./layouts/boilerplate') %>
-    <h1>Yelp camp</h1>
+<%- include('./partials/navbar') %>
+  
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/style/boilerplate.css" />
+    <link rel="stylesheet" type="text/css" href="/style/navbar.css" />
+    <link rel="stylesheet" type="text/css" href="/style/footer.css" />
+
+  
+
+    <title>PlacesMap!!</title>
+  </head>
+  <body>
+    <main class="main-home ">
+        <div class="cover-container tac">
+        <h1>Places Map </h1>
+        <p class="lead"> Have fun in explore your's and others places <br> Comment the places you love!!.</p>
+
+             <a href="/places" class="btn home-btn"> View Places</a>
+
+            </div>
+    </main>
+    <%- include('./partials/footer') %>
+
+</body>
+</html>

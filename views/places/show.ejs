@@ -1,6 +1,6 @@
 <% layout('./layouts/boilerplate') %>
 
-<div class="row">
+<div class="row disflex">
   <div class="column-width">
     <div class="card mb-3">
       <img src="<%= place.image %>" class="img-fluid" alt="..." />
@@ -59,6 +59,7 @@
         />
         <textarea
           class="form-control"
+          placeholder="Describe briefly your view about the place..."
           name="review[body]"
           id="body"
           cols="30"
