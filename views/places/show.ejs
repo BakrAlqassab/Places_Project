@@ -1,7 +1,9 @@
 <% layout('./layouts/boilerplate') %>
-
+<script>
+  const mapToken = "<%-process.env.MAPBOX_TOKEN %>";
+  const place = <%-JSON.stringify(place) %>;
+</script>
 <div class="row">
-
   <div class="column-width">
     <div class="card mb-3">
       <img src="<%= place.image %>" class="img-fluid" alt="..." />
@@ -12,12 +14,18 @@
       <ul class="list-group list-group-flush">
         <li class="text-light"><%= place.location %></li>
       </ul>
+      <ul class="list-group list-group-flush">
+        <li class="text-light">
+          Lng: <%= place.geometry.coordinates[0] %> Lat: <%=
+          place.geometry.coordinates[1] %>
+        </li>
+      </ul>
 
       <div class="card-body">
         <!--      
           <a  class="card-link btn btn-warning"  href="/places/<%= place._id %>/edit"> Edit </a> -->
-        
-        <a  class="btn btn-info"  href="/places/<%= place._id %>/edit"> Edit </a>
+
+        <a class="btn btn-info" href="/places/<%= place._id %>/edit"> Edit </a>
         <form
           class="d-inline"
           action="/places/<%= place._id %>?_method=DELETE"
@@ -27,46 +35,62 @@
         </form>
       </div>
     </div>
-
-  
   </div>
 
   <div class="column-width">
+    <div id="map" style="width: 100%; height: 300px"></div>
+    <h2>Leave a review</h2>
 
-  
-    <h2> Leave a review</h2>
-    
     <form action="/places/<%= place._id %>/reviews" method="POST" class="mt-3">
       <div class="mb-3">
-<label for="rationg">Rating</label>
-
+        <label for="rationg">Rating</label>
       </div>
       <div class="mb-3">
         <label class="form-label" for="">Review</label>
-        <input class='form-range' type="range" name="review[rating]" min='1' max='5' id="rating">
-        <textarea class="form-control"
+        <input
+          class="form-range"
+          type="range"
+          name="review[rating]"
+          min="1"
+          max="5"
+          id="rating"
+        />
+        <textarea
+          class="form-control"
           name="review[body]"
           id="body"
           cols="30"
           rows="3"
-          required 
+          required
         ></textarea>
       </div>
-      <button class="btn btn-success">Submit </button>
+      <button class="btn btn-success">Submit</button>
     </form>
     <% for(let review of place.reviews) {%>
-      <div class='mb-3'>
+    <div class="mb-3">
+      <p>Rating: <%= review.rating %></p>
+      <!-- <x-star-rating>
+            <div class="star full"></div>
+            <div class="star full"></div>
+            <div class="star full"></div>
+            <div class="star empty"></div>
+            <div class="star empty"></div>
 
-        <p>Rating: <%= review.rating %></p>
-        <p>Review: <%= review.body%></p>
-        <form action="/places/<%= place._id %>/reviews/<%= review._id %>?_method=DELETE" method="POST">
-          <button class="btn btn-sm btn-danger"> Delete</button></form>
-      </div>
-      <% }%>
-    
+
+        </x-star-rating> -->
+      <p>Review: <%= review.body%></p>
+      <form
+        action="/places/<%= place._id %>/reviews/<%= review._id %>?_method=DELETE"
+        method="POST"
+      >
+        <button class="btn btn-sm btn-danger">Delete</button>
+      </form>
+    </div>
+    <% }%>
   </div>
 </div>
 
- <br />
-  <a href="/places"> All Places </a>
+<br />
+<a href="/places"> All Places </a>
 
+<script src="/js/showPageMap.js"></script>
