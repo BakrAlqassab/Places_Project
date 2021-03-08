@@ -12,14 +12,13 @@ To use the Project
   ```
  
  ```
-- generate new map api link from
+- generate new mapbox api key from 
 ```
-   [Maps Api](https://developers.google.com/maps)
+   [MapBox Api](https://docs.mapbox.com/api/overview/)
    ```
 - insert your generated key in the
 ```
-  [index.html](https://github.com/BakrAlqassab/Places_Map_Project_Lamia/blob/master/index.html) ,  [Location.js](https://github.com/BakrAlqassab/Places_Map_Project_Lamia/blob/master/src/Utility/Location.js)
-  ```
+  [.env](https://github.com/BakrAlqassab/Places_Project/blob/master/.env) 
 
 The exist Api is for project working on the repository purpose , will be delete in a week
     
@@ -31,14 +30,8 @@ The exist Api is for project working on the repository purpose , will be delete 
 ```
 
 ```
-- npm run build:dev
+-  nodemon app.js
 
-Webpack  to reduce the unneseccary httlp calls
-
-The javascript code before bundling in 
-
-```
-[javascript code](https://github.com/BakrAlqassab/Places_Map_Project_Lamia/tree/master/src)
 
 
 
